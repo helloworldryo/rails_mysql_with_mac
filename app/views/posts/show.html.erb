@@ -8,6 +8,9 @@
       <div class="post-time">
         <%= @post.created_at %>
       </div>
+      <div class="post-menus">
+        <%= link_to("Edit", "/posts/#{@post.id}/edit") %>
+      </div>
     </div>
   </div>
 </div>
