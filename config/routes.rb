@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy"
   get "/" => "home#top"
   get "about" => "home#about"
+  get "users/index" => "users#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
