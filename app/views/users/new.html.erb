@@ -4,18 +4,18 @@
     <div class="form-heading">Sign up</div>
     <div class="form users-form">
       <div class="form-body">
-        <p>Name</p>
-        <!-- Create a single line input form using <input> -->
-        <input>
-        
-        <p>Email</p>
-        <!-- Create a single line input form using <input> -->
-        <input>
-        
-        <input type="submit" value="Sign up">
+        <!-- Add a form_tag method to send the data to the "create" action -->
+        <%= form_tag("/users/create") do  %>
+          <p>Name</p>
+          <!-- Add the "name" attribute -->
+          <input name="name">
+          <p>Email</p>
+          <!-- Add the "name" attribute -->
+          <input name="email">
+          <input type="submit" value="Sign up">
+        <!-- Add an end statement -->
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
