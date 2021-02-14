@@ -1,6 +1,6 @@
-<div class="main users-new">
+<div class="main users-edit">
   <div class="container">
-    <div class="form-heading">Sign up</div>
+    <div class="form-heading">Edit Account</div>
     <div class="form users-form">
       <div class="form-body">
         <!-- Paste the HTML to display the error messages -->
@@ -10,14 +10,16 @@
             </div>
           <% end %>
 
-        <%= form_tag("/users/create") do %>
+        <!-- Add a form_tag method to send the data to the "update" action -->
+        <%= form_tag("/users/#{@user.id}/update") do %>
           <p>Name</p>
-          <!-- Use the "value" attribute to set the default value -->
+          <!-- Add the "name" attribute -->
           <input name="name" value="<%= @user.name %>">
           <p>Email</p>
-          <!-- Use the "value" attribute to set the default value -->
+          <!-- Add the "name" attribute -->
           <input name="email" value="<%= @user.email %>">
-          <input type="submit" value="Sign up">
+          <input type="submit" value="Save">
+        <!-- Add an end statement -->
         <% end %>
       </div>
     </div>
