@@ -5,6 +5,10 @@
     <!-- Add an each method inside <% %> -->
     <% @users.each do |user| %>
       <div class="users-index-item">
+        <div class="user-left">
+          <!-- Add an <img> tag to display the profile image -->
+          <img src="<%= "/user_images/#{user.image_name}" %>">
+        </div>
         <div class="user-right">
           <!-- Display the user's name -->
           <%= link_to(user.name, "/users/#{user.id}") %>
@@ -14,4 +18,3 @@
     <% end %>
   </div>
 </div>
-
