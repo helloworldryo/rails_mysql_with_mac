@@ -11,15 +11,22 @@
   <body>
     <header>
       <div class="header-logo">
-        <%= link_to("TweetApp", "/") %>
+                <% if @current_user %>
+                  <%= link_to("TweetApp", "/posts/index") %>
+                <% else %>
+                  <%= link_to("TweetApp", "/") %>
+                <% end %>
       </div>
       <ul class="header-menus">
-        <% if session[:user_id] %>
+        <!-- Get the user with session[:user_id] as the id, then assign it to the current_user variable -->
+
+        <!-- Change the condition for the if statement -->
+        <% if @current_user %>
           <li>
-            Your ID is:
-            <%= session[:user_id] %>
+            <!-- Remove the line below -->
+            <!-- Replace the following with a link to the "User details" page -->
+            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
           </li>
-          <!-- Paste the HTML for users that are logged in -->
           <li>
             <%= link_to("Posts", "/posts/index") %>
           </li>
@@ -30,11 +37,9 @@
             <%= link_to("Users", "/users/index") %>
           </li>
           <li>
-            <!-- Add a link to the "logout" action -->
             <%= link_to("Log out", "/logout", {method: :post}) %>
           </li>
         <% else %>
-          <!-- Paste the HTML for users that are not logged in -->
           <li>
             <%= link_to("About", "/about") %>
           </li>
