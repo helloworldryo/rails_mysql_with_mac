@@ -2,6 +2,13 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
+      <!-- Paste the HTML here -->
+      <div class="post-user-name">
+        <!-- Fill in the src attribute to display @user's profile image -->
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <!-- Add a link to the "User details" page using the link_to method -->
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
       <p>
         <%= @post.content %>
       </p>
@@ -15,4 +22,3 @@
     </div>
   </div>
 </div>
-
