@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
+  post "likes/:post_id/create" => "likes#create"
+  # Add a new route for the "destroy" action
+  post "likes/:post_id/destroy" => "likes#destroy"
+
+  post "users/:id/update" => "users#update"
+  get "users/:id/edit" => "users#edit"
   post "users/create" => "users#create"
-
   get "signup" => "users#new"
-  get "login" => "users#login_form"
-  post "login" => "users#login"
-  post "logout" => "users#logout"
-
   get "users/index" => "users#index"
   get "users/:id" => "users#show"
-  get "users/:id/edit" => "users#edit"
-  post "users/:id/update" => "users#update"
+  post "login" => "users#login"
+  post "logout" => "users#logout"
+  get "login" => "users#login_form"
 
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
@@ -21,6 +23,4 @@ Rails.application.routes.draw do
 
   get "/" => "home#top"
   get "about" => "home#about"
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

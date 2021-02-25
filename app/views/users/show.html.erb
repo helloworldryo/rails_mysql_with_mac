@@ -1,15 +1,30 @@
-
 <div class="main user-show">
   <div class="container">
     <div class="user">
       <img src="<%= "/user_images/#{@user.image_name}" %>">
-      <!-- Display the @user's name -->
-      <h2><%= @user.name%></h2>
-      <!-- Display the @user's email -->
-      <p><%= @user.email%></p>
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
       <% if @user.id == @current_user.id %>
         <%= link_to("Edit", "/users/#{@user.id}/edit") %>
       <% end %>
     </div>
+    <!-- Add an each method inside <% %> -->
+    <% @user.posts.each do |post| %>
+      <!-- Paste the HTML here -->
+      <!-- Copy the code below -->
+      <div class="posts-index-item">
+        <div class="post-left">
+          <img src="<%= "/user_images/#{post.user.image_name}" %>">
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+          </div>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+        </div>
+      </div>
+      <!-- Copy the code above -->
+    <!-- Add an end statement -->
+    <% end %>
   </div>
 </div>
